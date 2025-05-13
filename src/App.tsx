@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navber";
-import HomePag from "./components/homePag";
 import PerfectScrollbar from "perfect-scrollbar";
 import Aside from "./components/aside";
 import Login from "./components/accounts/Login";
@@ -58,7 +57,6 @@ const App: React.FC = () => {
 
             <div className="content-wrapper" dir={direction}>
               <div className="row my-4">
-                {/* <HomePag /> */}
                 <Login theme={theme} direction={direction}  />
 
               </div>
