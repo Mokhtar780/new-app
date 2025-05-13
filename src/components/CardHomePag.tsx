@@ -1,6 +1,8 @@
-import { ReactNode } from "react";
 
-const Card = ({ title, children,theme }: { title: string; children: ReactNode ;theme:string}) => {
+
+
+
+ function CardHomePag({ myName, theme }: { myName: boolean ;theme:string}) {
   return (
     <>
       <div className={` card  ${
@@ -9,7 +11,7 @@ const Card = ({ title, children,theme }: { title: string; children: ReactNode ;t
              
             `}>
         <div className="card-header header-elements">
-          <h5 className="card-title mb-0">{children}</h5>
+          <h5 className="card-title mb-0">💖</h5>
           <div className="card-header-elements ms-auto py-0 dropdown">
             <button
               type="button"
@@ -28,10 +30,10 @@ const Card = ({ title, children,theme }: { title: string; children: ReactNode ;t
             </div>
           </div>
         </div>
-        <div className="card-body">{title}</div>
+        <div className="card-body">{myName ? "  أهلاً وسهلاً بك عزيزي المستخدم  " : " Welcome dear user "}</div>
       </div>
     </>
   );
 };
 
-export default Card;
+export default CardHomePag;

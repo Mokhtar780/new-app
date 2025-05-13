@@ -1,7 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import "./_HomePag.scss";
 import SkillsCard from "../SkillsCard";
-import Card from "../Card";
 
 interface Config {
   colors: {
@@ -41,23 +40,18 @@ function HomePag() {
     <>
       <Row>
         <Col>
-          <Card title=" أخر 10 أيام "> 🌹🌹 </Card>
         </Col>
         <Col>
-          <Card title=" أخر 10 أيام "> 🌹🌹 </Card>
         </Col>
         <Col>
           {" "}
           <SkillsCard isDarkStyle={false} config={config} isRtl={false} />
         </Col>
         <Col>
-          <Card title=" أخر 10 أيام "> 🌹🌹 </Card>{" "}
         </Col>
         <Col>
-          <Card title=" أخر 10 أيام "> 🌹🌹 </Card>{" "}
         </Col>
         <Col>
-          <Card title=" أخر 10 أيام "> 🌹🌹 </Card>{" "}
         </Col>
       </Row>
     </>

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navber";
 import PerfectScrollbar from "perfect-scrollbar";
 import Aside from "./components/aside";
-import Card from "./components/Card";
 import { Col } from "react-bootstrap";
-// import Login from "./components/accounts/Login";
+import CardHomePag from "./components/CardHomePag";
 
-const App: React.FC = () => {
-  // const [direction, setDirection] = useState<"ltr" | "rtl">("rtl");
+const App = () => {
   const [language, setLanguage] = useState(true);
   const [myName, setMyName] = useState(true);
   const [direction, setDirection] = useState("rtl");
@@ -35,13 +33,12 @@ const App: React.FC = () => {
         } `}
       >
         <div className="layout-container">
-          <Aside 
-           theme={theme}
-           myName={myName}
-           direction={direction}
-           isAsideVisible={isAsideVisible}
-           
-         />
+          <Aside
+            theme={theme}
+            myName={myName}
+            direction={direction}
+            isAsideVisible={isAsideVisible}
+          />
 
           <div className={`main-content`}>
             <Navbar
@@ -59,12 +56,11 @@ const App: React.FC = () => {
 
             <div className="content-wrapper" dir={direction}>
               <div className="row my-4">
-                {/* <Login theme={theme} direction={direction}  /> */}
-               <Col>
-                <Card  title={myName ? "  أهلاً وسهلاً بك عزيزي المستخدم  " : " Welcome dear user "}   theme={theme}> 💖 </Card>
-              </Col>
-              <Col></Col>
-              <Col></Col>
+                <Col>
+                  <CardHomePag myName={myName} theme={theme} />
+                </Col>
+                <Col></Col>
+                <Col></Col>
               </div>
             </div>
           </div>
