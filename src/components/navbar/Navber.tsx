@@ -49,7 +49,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                           >
                             <div className="avatar avatar-online">
                               <img
-                                src="public/my4.jpg"
+                                src="../images/my4.jpg"
                                 className="rounded-circle"
                               />
                             </div>
@@ -68,7 +68,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                   <div className="flex-shrink-0 me-3">
                                     <div className="avatar avatar-online">
                                       <img
-                                        src="public/my4.jpg"
+                                        src="../images/my4.jpg"
                                         className="rounded-circle"
                                       />
                                     </div>
@@ -418,7 +418,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 >
                                   <div className={`toast-header  ${    theme == "dark" ? "myDark text-white" : "myLight text-black"  } `}>
                                     <img
-                                      src="public/ameen.jpg"
+                                      src="../images/ameen.jpg"
                                       className="d-block w-px-40 h-auto rounded me-2"
                                       alt=""
                                     />
@@ -457,7 +457,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 >
                                   <div className={`toast-header  ${   theme == "dark" ? "myDark text-white" : "myLight text-black" } `}>
                                     <img
-                                      src="public/Hashem.jpg"
+                                      src="../images/Hashem.jpg"
                                       className="d-block w-px-40 h-auto rounded me-2"
                                       alt=""
                                     />
@@ -495,7 +495,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 >
                                  <div className={`toast-header  ${   theme == "dark" ? "myDark text-white" : "myLight text-black"  } `}>
                                     <img
-                                      src="public/Laith.jpg"
+                                      src="../images/Laith.jpg"
                                       className="d-block w-px-40 h-auto rounded me-2"
                                       alt=""
                                     />

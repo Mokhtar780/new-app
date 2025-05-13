@@ -65,7 +65,7 @@ const Aside = ({theme,myName,direction,isAsideVisible}:IEvent) =>{
                   <div className="d-flex align-items-center">
                     <div className="avatar me-2">
                       <img
-                        src="../public/my4.jpg"
+                        src="../images/my4.jpg"
                         alt="Avatar"
                         className="rounded"
                       />
