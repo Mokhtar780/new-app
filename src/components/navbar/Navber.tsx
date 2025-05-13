@@ -1,4 +1,4 @@
-
+import Image from 'react-bootstrap/Image';
 import { Col, Row } from "react-bootstrap";
 import { FaMoon, FaSun } from "react-icons/fa";
 
@@ -49,10 +49,11 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                             data-bs-toggle="dropdown"
                           >
                             <div className="avatar avatar-online">
-                              <img
+                              {/* <img
                                 src="src/assets/images/my4.jpg"
                                 className="rounded-circle"
-                              />
+                              /> */}
+                   <Image src="src/assets/images/my4.jpg" alt="Avatar"  className="rounded-circle" roundedCircle />
                             </div>
                           </a>
                           <ul className={`dropdown-menu dropdown-menu-center ${
@@ -68,22 +69,20 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 <div className="d-flex">
                                   <div className="flex-shrink-0 me-3">
                                     <div className="avatar avatar-online">
-                                      <img
-                                        src="src/assets/images/my4.jpg"
-                                        className="rounded-circle"
-                                      />
+                                     
+               <Image src="src/assets/images/my4.jpg" alt="Avatar" 
+                className="rounded-circle" roundedCircle />
+
                                     </div>
                                   </div>
                                   <div className="flex-grow-1">
                                     <span className={`lh-1 d-block fw-semibold ${
-                theme == "dark" ? "text-white" : "text-black"
-              } 
-            `}>
+                theme == "dark" ? "text-white" : "text-black" }  `}>
                                       {myName
                                         ? " مختار اليعري "
                                         : "Mokhtar  AL-Yara'a "}
                                     </span>
-                                    <small className=" text-info">
+                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `}>
                                       {" "}
                                       {myName ? " مشرف " : " Supervisor "}
                                     </small>
@@ -99,8 +98,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 className="dropdown-item"
                                 href="pages-profile-user.html"
                               >
-                                <i className="bx bx-user me-2 text-info"></i>
-                                <span className="align-middle text-info">  {myName ? " من أنا " : " who I am "}</span>
+                                <i  className={` bx bx-user me-2 ${ theme == "dark" ? "text-white" : "text-black"} `}></i>
+                                <span  className={` align-middle  ${ theme == "dark" ? "text-white" : "text-black"} `}>  {myName ? " من أنا " : " who I am "}</span>
                               </a>
                             </li>
                             <li>
@@ -108,8 +107,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 className="dropdown-item"
                                 href="pages-account-settings-account.html"
                               >
-                                <i className="bx bx-cog me-2 text-info"></i>
-                                <span className="align-middle text-info">    {myName ? " الضبط" : " Settings "}</span>
+                                <i className={`bx bx-cog me-2  ${ theme == "dark" ? "text-white" : "text-black"} `}></i>
+                                <span  className={`align-middle  ${ theme == "dark" ? "text-white" : "text-black"} `}>    {myName ? " الضبط" : " Settings "}</span>
                               </a>
                             </li>
                             <li>
@@ -118,8 +117,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 href="pages-account-settings-billing.html"
                               >
                                 <span className="d-flex align-items-center align-middle">
-                                  <i className="bx bx-credit-card flex-shrink-0 me-2 text-info"></i>
-                                  <span className="flex-grow-1 align-middle text-info">
+                                  <i  className={`bx bx-credit-card flex-shrink-0 me-2  ${ theme == "dark" ? "text-white" : "text-black"} `} ></i>
+                                  <span className={`flex-grow-1 align-middle  ${ theme == "dark" ? "text-white" : "text-black"} `}>
                                         {myName ? " الفواتير " : " The Bills "}
                                   </span>
                                   <span className="badge badge-center rounded-pill w-px-20 h-px-20 flex-shrink-0 bg-danger">
@@ -136,8 +135,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 className="dropdown-item"
                                 href="pages-help-center-landing.html"
                               >
-                                <i className="bx bx-support me-2 text-info"></i>
-                                <span className="align-middle text-info">     {myName ? " مساعدة " : " Help "}</span>
+                                <i  className={` bx bx-support me-2  ${ theme == "dark" ? "text-white" : "text-black"} `}></i>
+                                <span  className={` align-middle  ${ theme == "dark" ? "text-white" : "text-black"} `}>     {myName ? " مساعدة " : " Help "}</span>
                               </a>
                             </li>
                             <li>
@@ -145,8 +144,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 className="dropdown-item"
                                 href="pages-faq.html"
                               >
-                                <i className="bx bx-help-circle me-2  text-info"></i>
-                                <span className="align-middle text-info">
+                                <i className={`bx bx-help-circle me-2   ${ theme == "dark" ? "text-white" : "text-black"} `}></i>
+                                <span  className={`align-middle   ${ theme == "dark" ? "text-white" : "text-black"} `}>
                                   
                                 {myName ? " الأسئلة الشائعة" : " Frequently Asked Questions "}
                                 </span>
@@ -157,8 +156,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 className="dropdown-item"
                                 href="pages-pricing.html"
                               >
-                                <i className="bx bx-dollar me-2  text-info"></i>
-                                <span className="align-middle text-info">     {myName ? " التسعير " : " Pricing "} </span>
+                                <i className={`bx bx-dollar me-2    ${ theme == "dark" ? "text-white" : "text-black"} `}></i>
+                                <span  className={`align-middle   ${ theme == "dark" ? "text-white" : "text-black"} `}>     {myName ? " التسعير " : " Pricing "} </span>
                               </a>
                             </li>
                             <li>
@@ -170,8 +169,8 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 href="auth-login-cover.html"
                                 target="_blank"
                               >
-                                <i className="bx bx-power-off me-2  text-info"></i>
-                                <span className="align-middle text-info">    {myName ? " المغادرة" : " Logout "}</span>
+                                <i className={` bx bx-power-off me-2 ${ theme == "dark" ? "text-white" : "text-black"} `}></i>
+                                <span  className={` align-middle ${ theme == "dark" ? "text-white" : "text-black"} `}>    {myName ? " المغادرة" : " Logout "}</span>
                               </a>
                             </li>
                           </ul>
@@ -264,7 +263,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                             theme == "dark" ? "text-white" : "text-black"
                           } `}>
                                   
-                                  <small>  {myName ? " أختصارات " : "   "}</small>
+                                  <small>  {myName ? " أختصارات " : " Abbreviations  "}</small>
                                 </h6>
                                 <a
                                   href="javascript:void(0)"
@@ -292,11 +291,11 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                     className="stretched-link"
                                   >
 
-<small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " التقويم " : "   "}</small>
+<small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " التقويم " : " Calendar  "}</small>
                                   </a>
                                   <small className="text-muted mb-0">
                                     
-                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " الموعد " : "   "}</small>
+                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " موعد " : "  Appointment "}</small>
                                   </small>
                                 </div>
                                 <div className="dropdown-shortcuts-item col">
@@ -310,11 +309,11 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                     className="stretched-link"
                                   >
                                     
-                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " مساعدة " : "   "}</small>
+                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " مساعدة " : " Help  "}</small>
                                   </a>
                                   <small className="text-muted mb-0">
                                     
-                                  <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >   {myName ? " مساعدة من جوجل " : "   "}</small>
+                                  <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >   {myName ? " مساعدة من جوجل " : "  Help from Google "}</small>
                                   </small>
                                 </div>
                               </div>
@@ -330,12 +329,12 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                     className="stretched-link"
                                   >
                                     
-                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " المستخدم " : "   "}</small>
+                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " المستخدم " : " User  "}</small>
                                   </a>
                                   <small className="text-muted mb-0">
                                     {" "}
                                     
-                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >   {myName ? " مدير المستخدمين " : "   "}</small>
+                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >   {myName ? " مدير المستخدمين " : "  User Manager "}</small>
                                   </small>
                                 </div>
                                 <div className="dropdown-shortcuts-item col">
@@ -349,11 +348,11 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                     className="stretched-link"
                                   >
                                     
-                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " الضبط " : "   "}</small>
+                                    <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >  {myName ? " الضبط " : "  Adjustment "}</small>
                                   </a>
                                   <small className="text-muted mb-0">
                                     
-                                  <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >   {myName ? " ضبط الاعدادات " : "   "}</small>
+                                  <small className={`  ${ theme == "dark" ? "text-white" : "text-black"} `} >   {myName ? " ضبط الاعدادات " : " Adjust settings  "}</small>
                                   </small>
                                 </div>
                               </div>
@@ -418,11 +417,9 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                   style={{borderBottom:"2px solid red"}}
                                 >
                                   <div className={`toast-header  ${    theme == "dark" ? "myDark text-white" : "myLight text-black"  } `}>
-                                    <img
-                                      src="src/assets/images/ameen.jpg"
-                                      className="d-block w-px-40 h-auto rounded me-2"
-                                      alt=""
-                                    />
+                                   
+                                     <Image src="src/assets/images/ameen.jpg" alt="Avatar" 
+                 className="d-block w-px-40 h-auto rounded me-2" roundedCircle />
                                     <div className="me-auto fw-medium">
                                       {" "}
                                       {myName
@@ -457,11 +454,9 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                   style={{borderBottom:"2px solid red"}}
                                 >
                                   <div className={`toast-header  ${   theme == "dark" ? "myDark text-white" : "myLight text-black" } `}>
-                                    <img
-                                      src="src/assets/images/Hashem.jpg"
-                                      className="d-block w-px-40 h-auto rounded me-2"
-                                      alt=""
-                                    />
+                                   
+                                     <Image src="src/assets/images/Hashem.jpg" alt="Avatar" 
+                 className="d-block w-px-40 h-auto rounded me-2" roundedCircle />
                                     <div className="me-auto fw-medium ">
                                       {" "}
                                       {myName
@@ -495,11 +490,9 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                   aria-atomic="true"
                                 >
                                  <div className={`toast-header  ${   theme == "dark" ? "myDark text-white" : "myLight text-black"  } `}>
-                                    <img
-                                      src="src/assets/images/Laith.jpg"
-                                      className="d-block w-px-40 h-auto rounded me-2"
-                                      alt=""
-                                    />
+                                    
+                                     <Image src="src/assets/images/Laith.jpg" alt="Avatar" 
+                className="d-block w-px-40 h-auto rounded me-2" roundedCircle />
                                     <div className="me-auto fw-medium">
                                       {" "}
                                       {myName

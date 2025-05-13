@@ -1,10 +1,10 @@
+import Image from 'react-bootstrap/Image';
 interface IEvent {
   theme: string;
   myName: boolean;
   direction: string;
   isAsideVisible: boolean;
 }
-
 const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
   const MenuParantAr = "الرئيسية",
     MenuChiledAr1 = "التــرفـيـــة",
@@ -68,11 +68,9 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
             <div className="p-3 border-bottom">
               <div className="d-flex align-items-center">
                 <div className="avatar me-2">
-                  <img
-                    src="src/assets/images/my4.jpg"
-                    alt="Avatar"
-                    className="rounded"
-                  />
+                 
+                   <Image src="src/assets/images/my4.jpg" alt="Avatar"
+                    className="rounded" roundedCircle />
                 </div>{" "}
                 <div>
                   <h6 className="mb-0">
@@ -84,7 +82,8 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                       </small>
                     </small>
                   </h6>
-                  <small className="text-info">
+                  <small className={`${
+                theme == "dark" ? "text-white" : "text-black" }  `}>
                     <span className="user-status"></span>{" "}
                     <small>
                       {" "}
@@ -111,22 +110,26 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                     <a className="accordion-header bgAndColor" id="headingOne">
                       <button
                         type="button"
-                        className="accordion-button theMenuAsideStyle"
+                        className={`accordion-button ${theme == "dark" ? "myDark borderColorLight" : "myLight borderColorDark"}
+             ${direction == "ltr" ? "english dirLeft" : "arabic dirRight"}
+            `}
                         data-bs-toggle="collapse"
                         data-bs-target="#accordionOne"
                         aria-expanded="true"
                         aria-controls="accordionOne"
                         role="tabpanel"
                       >
-                        <i className="menu-icon tf-icons bx bx-home-circle  text-info"></i>{" "}
+                        <i className={`menu-icon tf-icons bx bx-home-circle ${
+                theme == "dark" ? "text-white" : "text-black" }  `}></i>{" "}
                         &nbsp;&nbsp;{" "}
-                        <small>{myName ? MenuParantAr : MenuParantEn} </small>
+                        <small  className={`${
+                theme == "dark" ? "text-white" : "text-black" }  `} >{myName ? MenuParantAr : MenuParantEn} </small>
                       </button>
                     </a>
 
                     <div
                       id="accordionOne"
-                      className="accordion-collapse collapse  bgAndColor"
+                      className={`accordion-collapse collapse ${theme == "dark" ? " myLight" : "myDark "}`}
                       data-bs-parent="#accordionExample"
                     >
                       <div className="accordion-body">
@@ -135,7 +138,8 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                           className="btn btn-xs btn-sm asideStyle"
                         >
                           {" "}
-                          <i className="menu-icon tf-icons fa fa-play text-white"></i>{" "}
+                          <i className={`menu-icon tf-icons fa fa-play ${
+                theme == "dark" ? "text-black" : "text-white" }  `}></i>{" "}
                           &nbsp;{" "}
                           <small>
                             {myName ? MenuChiledAr1 : MenuChiledEn1}{" "}
@@ -146,7 +150,8 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                           className="btn btn-xs btn-sm asideStyle"
                         >
                           {" "}
-                          <i className="menu-icon tf-icons fa fa-book text-white"></i>{" "}
+                          <i className={`menu-icon tf-icons fa fa-book ${
+                theme == "dark" ? "text-black" : "text-white"}  `}></i>{" "}
                           &nbsp;{" "}
                           <small>
                             {" "}
@@ -163,22 +168,26 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                     <a className="accordion-header bgAndColor" id="headingTow">
                       <button
                         type="button"
-                        className="accordion-button theMenuAsideStyle"
+                        className={`accordion-button ${theme == "dark" ? "myDark borderColorLight" : "myLight borderColorDark"}
+                        ${direction == "ltr" ? "english dirLeft" : "arabic dirRight"}
+                       `}
                         data-bs-toggle="collapse"
                         data-bs-target="#accordionTow"
                         aria-expanded="true"
                         aria-controls="accordionTow"
                         role="tabpanel"
                       >
-                        <i className="menu-icon tf-icons fa fa-users text-info"></i>{" "}
+                        <i className={`menu-icon tf-icons fa fa-users ${
+                theme == "dark" ? "text-white" : "text-black" }  `}></i>{" "}
                         &nbsp;&nbsp;{" "}
-                        <small>{myName ? " المستخدمون " : " Users "}</small>
+                        <small className={`${
+                theme == "dark" ? "text-white" : "text-black" }  `} >{myName ? " المستخدمون " : " Users "}</small>
                       </button>
                     </a>
 
                     <div
                       id="accordionTow"
-                      className="accordion-collapse collapse  bgAndColor"
+                      className={`accordion-collapse collapse ${theme == "dark" ? "myLight " : " myDark"}`}
                       data-bs-parent="#accordionExample"
                     >
                       <div className="accordion-body">
@@ -187,7 +196,8 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                           className="btn btn-xs btn-sm asideStyle"
                         >
                           {" "}
-                          <i className="menu-icon tf-icons fa fa-user text-white"></i>{" "}
+                          <i className={`menu-icon tf-icons fa fa-user ${
+                theme == "dark" ? "text-black" : "text-white" }  `}></i>{" "}
                           &nbsp;
                           <small>
                             {" "}
@@ -198,10 +208,11 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
                         </button>
                         <button
                           type="button"
-                          className="btn btn-xs btn-sm asideStyle"
+                          className="btn btn-xs btn-sm asideStyle "
                         >
                           {" "}
-                          <i className="menu-icon tf-icons fa fa-user text-white"></i>{" "}
+                          <i className={`menu-icon tf-icons fa fa-user ${
+                theme == "dark" ? "text-black" : "text-white" }  `}></i>{" "}
                           &nbsp;
                           <small>
                             {" "}
