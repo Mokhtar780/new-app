@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/navbar/Navber";
 import PerfectScrollbar from "perfect-scrollbar";
 import Aside from "./components/aside";
-import Login from "./components/accounts/Login";
+// import Login from "./components/accounts/Login";
 
 const App: React.FC = () => {
   // const [direction, setDirection] = useState<"ltr" | "rtl">("rtl");
@@ -57,7 +57,7 @@ const App: React.FC = () => {
 
             <div className="content-wrapper" dir={direction}>
               <div className="row my-4">
-                <Login theme={theme} direction={direction}  />
+                {/* <Login theme={theme} direction={direction}  /> */}
 
               </div>
             </div>
