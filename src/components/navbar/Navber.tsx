@@ -2,6 +2,7 @@
 import { Col, Row } from "react-bootstrap";
 import { FaMoon, FaSun } from "react-icons/fa";
 
+
 interface IEvent{
 
     theme : string ;
@@ -49,7 +50,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                           >
                             <div className="avatar avatar-online">
                               <img
-                                src="../images/my4.jpg"
+                                src="src/assets/images/my4.jpg"
                                 className="rounded-circle"
                               />
                             </div>
@@ -68,7 +69,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                   <div className="flex-shrink-0 me-3">
                                     <div className="avatar avatar-online">
                                       <img
-                                        src="../images/my4.jpg"
+                                        src="src/assets/images/my4.jpg"
                                         className="rounded-circle"
                                       />
                                     </div>
@@ -418,7 +419,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 >
                                   <div className={`toast-header  ${    theme == "dark" ? "myDark text-white" : "myLight text-black"  } `}>
                                     <img
-                                      src="../images/ameen.jpg"
+                                      src="src/assets/images/ameen.jpg"
                                       className="d-block w-px-40 h-auto rounded me-2"
                                       alt=""
                                     />
@@ -457,7 +458,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 >
                                   <div className={`toast-header  ${   theme == "dark" ? "myDark text-white" : "myLight text-black" } `}>
                                     <img
-                                      src="../images/Hashem.jpg"
+                                      src="src/assets/images/Hashem.jpg"
                                       className="d-block w-px-40 h-auto rounded me-2"
                                       alt=""
                                     />
@@ -495,7 +496,7 @@ const Navbar = ({theme,setTheme,myName,setMyName,direction,setDirection,language
                                 >
                                  <div className={`toast-header  ${   theme == "dark" ? "myDark text-white" : "myLight text-black"  } `}>
                                     <img
-                                      src="../images/Laith.jpg"
+                                      src="src/assets/images/Laith.jpg"
                                       className="d-block w-px-40 h-auto rounded me-2"
                                       alt=""
                                     />
