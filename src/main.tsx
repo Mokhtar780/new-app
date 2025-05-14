@@ -4,6 +4,7 @@ import "bootstrap";
 import "react-bootstrap";
 import "./index.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ThemeProvider } from "react-bootstrap";
 import App from "./App";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,17 +12,12 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
-      {/* <PrimeReactProvider>
     <ThemeProvider
       dir="ltr"
-      breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+      breakpoints={["xxxl", "xxl", "xl", "lg", "md", "sm", "xs", "xxs"]}
       minBreakpoint="xxs"
-      >
-   
-
-
+    >
+      <App />
     </ThemeProvider>
-          </PrimeReactProvider> */}
   </React.StrictMode>
 );

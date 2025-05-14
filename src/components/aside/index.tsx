@@ -1,3 +1,5 @@
+import PerfectScrollbar from 'perfect-scrollbar';
+import { useEffect } from 'react';
 import Image from 'react-bootstrap/Image';
 interface IEvent {
   theme: string;
@@ -14,11 +16,23 @@ const Aside = ({ theme, myName, direction, isAsideVisible }: IEvent) => {
     MenuChiledEn1 = "Entertainment",
     MenuChiledEn2 = " Explore ";
 
+    useEffect(() => {
+      const element = document.getElementById("vertical-example") as HTMLElement;
+      const ps = new PerfectScrollbar(element, {
+        wheelPropagation: false,
+      });
+  
+      // تنظيف عند فك التركيب
+      return () => {
+        ps.destroy();
+      };
+    }, []);
+
   return (
     <>
       <aside
         id="layout-menu"
-        className={` menu-vertical   ${isAsideVisible ? "" : "d-none"}
+        className={` menu-vertical  ${isAsideVisible ? "" : "d-none "}
             ${
               theme == "dark"
                 ? "myDark borderColorLight"

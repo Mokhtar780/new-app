@@ -1,176 +1,177 @@
 import "./Login.scss";
-
-import 'bootstrap-select';
-const bsValidationForms = document.querySelectorAll<HTMLFormElement>(".needs-validation");
-
-// Loop over them and prevent submission
-Array.from(bsValidationForms).forEach((form) => {
-  form.addEventListener(
-    "submit",
-    (event: Event) => {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      } else {
-        // Submit your form
-        alert("Submitted!!!");
-      }
-
-      form.classList.add("was-validated");
-    },
-    false
-  );
-});
-
-
-
-
-
+import { useState } from "react";
+import "bootstrap-select";
+import "bootstrap";
+import { Form } from "react-bootstrap";
+import NavLogin from "./NavLogin";
 
 interface IEvent{
-    theme:string;
-    direction:string;
+  direction:string;
+  theme:string;
+  myName:boolean;
+  language:boolean;
+  setLogin :(val :boolean)=>void;
+  setLanguage :(val :boolean)=>void;
+  setTheme: (val: string) => void;
+  setMyName: (val: boolean) => void;
+  setDirection: (val: string) => void;
+  
 }
-
-const Login = ({theme,direction}:IEvent) => {
-
+const Login = ({ theme, myName, direction,language,setLanguage,  setTheme, setMyName, setDirection,setLogin }: IEvent) => {
+  const [valueUserName, setValueUserName] = useState<string>("");
+  const [valuePassword, setValuePassword] = useState<string>("");
 
   return (
     <>
-       <div
+      <div
         className={`authentication-wrapper authentication-cover  
-      ${theme == "dark" ? "bodyDark" : "bodyLight"}
-       ${direction == "ltr" ? "english dirLeft" : "arabic dirRight"}
-      `}
+      ${
+              theme == "dark"
+                ? "myDark borderColorLight"
+                : "myLight borderColorDark"
+            }
+
+             ${direction == "ltr" ? "english dirLeft" : "arabic dirRight"}
+           
+            `}
       >
         <div className="authentication-inner row m-0">
           <div className="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center">
             <div className="flex-row text-center mx-auto">
-              <img
-                src="~/images/img/my.ico"
-                alt="Auth Cover Bg color"
-                width="520"
-                className="img-fluid authentication-cover-img  img"
-                data-app-light-img="../../assets/img/my.jpg"
-                data-app-dark-img="../../assets/img/my.jpg"
-              />
+           
             </div>
           </div>
-          <div className="authentication-bg d-flex col-12 align-items-center ">
+          <div className={`main-content`}>
+                <NavLogin
+                  theme={theme}
+                  myName={myName}
+                  language={language}
+                  direction={direction}
+                  setLanguage={setLanguage}
+                  setTheme={setTheme}
+                  setMyName={setMyName}
+                  setDirection={setDirection}
+                  />
+                </div>
+          <div className={` authentication-bg d-flex col-12 align-items-center ScreenPosition
+           
+            `}>
             <div className="w-px-700 mx-auto">
-              <a href="/" className="app-brand-link gap-2 mb-2">
-                <span className="app-brand-text demo h3 fw-bold mb-0 ">
-                  <b>تسجيل الدخول</b>
+              <div  className="app-brand-link gap-2 mb-2">
+                <span className="app-brand-text demo h4 fw-bold mb-1 ">
+                  <b> {myName ? " تسجيل الدخول"  : " Log in " }  </b>
                 </span>
-                <span className="app-brand-logo demo">
-                  <img
-                    src="~/images/img/my1.jpg"
-                    className="img"
-                    alt="Auth Cover Bg color"
-                  />
-                </span>
-              </a>
+              </div>
+              <h6 className="mb-2">
+              {myName ? " فضلاً ــ تسجيل الدخول لكي تستطيع أستخدام النظام . "  : " Please ــ Log In To Use The System . " } 
+                
+              </h6>
 
-              <h4 className="mb-2 fontstyle">أهلاً وسهلاُ بك 👋</h4>
-              <p className="mb-4">
-                فضلاُ يرجاء تسجيل الدخول بحسابك لكي تستطيع أستخدام النظام
-              </p>
+              <Form.Floating className="mb-2">
+                <Form.Control
+                className={`${direction == "ltr" ? "english dirLeft" : "arabic dirRight"}`}
+                  id="floatingInputCustom"
+                  type="email"
+                  placeholder=""
+                  value={valueUserName}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setValueUserName(e.target.value)
+                  }
+                />
+                <label htmlFor="floatingInputCustom"  className={`text-black `}>  {myName ? " أســم المستخدم أو الإيميل  "  : " UserName or Email " } </label>
+              </Form.Floating>
+              <div className="d-flex justify-content-between">
+                <label className="form-label" htmlFor="password"></label>
+                <a href="">
+                  <small>  {myName ? " نسيت كلمة المرور ؟  "  : " Forgot Your Password ? " } </small>
+                </a>
+              </div>
+               
+              <Form.Floating>
+                <Form.Control
+                  className={`${direction == "ltr" ? "english dirLeft" : "arabic dirRight"} `}
+                  id="floatingPasswordCustom"
+                  type="password"
+                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                  value={valuePassword}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setValuePassword(e.target.value)
+                  }
+                  
+                />
+                <label htmlFor="floatingPasswordCustom" className={`text-black `}>{myName ? " كلمة المرور  "  : " Password " }  </label>
+              </Form.Floating>
 
-              <form
-                id="formAuthentication"
-                className="mb-3"
-                action="index.html"
-                method="POST"
-              >
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    {" "}
-                    أسم المستخدم أو الأيميل{" "}
-                  </label>
+              <div className="mb-2">
+                <div className="card flex flex-wrap justify-content-center gap-3"></div>
+                <div className="form-check">
                   <input
-                    type="text"
-                    className="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder=" يرجاء أدخال أسم المستخدم أو الأيميل"
-                    autoFocus
+                    className="form-check-input"
+                    type="checkbox"
+                    id="remember-me"
                   />
+                  <label className="form-check-label" htmlFor="remember-me">
+                  {myName ? " ذكرني "  : " Remind Me " }  
+                  </label>
                 </div>
-                <div className="form-password-toggle mb-3">
-                  <div className="d-flex justify-content-between">
-                    <label className="form-label" htmlFor="password">
-                      كلمة السر
-                    </label>
-                    <a href="auth-forgot-password-cover.html">
-                      <small>نسيت كلمة السر ؟</small>
-                    </a>
-                  </div>
-                  <div className="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      className="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span className="input-group-text cursor-pointer">
-                      <i className="bx bx-hide"></i>
-                    </span>
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="remember-me"
-                    />
-                    <label className="form-check-label" htmlFor="remember-me">
-                      {" "}
-                      ذكرني{" "}
-                    </label>
-                  </div>
-                </div>
-                <button
-                  className="btn btn-primary Backlogin fontstyle d-grid w-100"
-                  asp-area="default"
-                  asp-controller="Home"
-                  asp-action=""
-                >
-                  دخول
-                </button>
-              </form>
-
+              </div>
+              <button
+                className="btn btn-primary Backlogin fontstyle d-grid w-100"
+                
+                onClick={()=> {
+                  if (valueUserName=="123" && valuePassword =="123") {
+                    setLogin(true);
+                  }else{
+                      alert(myName ? " يوجد خطأ في أسم المستخدم أو كلمة المرور . " :" There is an error in the username or password.");
+                      setValuePassword("");
+                      setValueUserName("");
+                  }
+                }}
+              >
+               {myName ? " تسجيل الدخول "  : " Log In " } 
+               
+              </button>
+              <hr />
               <p className="text-center">
-                <span>هل انت جديد ؟</span>
+                <span>
+                  <b>
+                    <small>{myName ? " لا يـــوجـد حســاب ؟ "  : " No account? " } </small>
+                  </b>
+                </span>
                 <a href="/">
-                  <span>أنشاء حساب</span>
+                  <span>
+                    {" "}
+                    <b>
+                      <small> {myName ? " أنشـــاء حسـاب "  : " Create an account " } </small>
+                    </b>
+                  </span>
                 </a>
               </p>
 
               <div className="divider my-4">
-                <div className="divider-text">أو</div>
+                <div className="divider-text text-primary">
+                  <b>  {myName ? " أو "  : " Or " }  </b>
+                </div>
               </div>
 
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center mb-3">
                 <a
                   href="javascript:;"
-                  className="btn btn-icon btn-label-facebook me-3"
+                  className="btn btn-icon btn-label-facebook me-3 text-white text-cenetr bg-primary"
                 >
                   <i className="tf-icons bx bxl-facebook"></i>
                 </a>
 
                 <a
                   href="javascript:;"
-                  className="btn btn-icon btn-label-google-plus me-3"
+                  className="btn btn-icon btn-label-google-plus me-3 text-white text-cenetr bg-danger"
                 >
                   <i className="tf-icons bx bxl-google-plus"></i>
                 </a>
 
                 <a
                   href="javascript:;"
-                  className="btn btn-icon btn-label-twitter"
+                  className="btn btn-icon btn-label-twitter  me-3  text-white text-cenetr bg-info"
                 >
                   <i className="tf-icons bx bxl-twitter"></i>
                 </a>
@@ -179,9 +180,9 @@ const Login = ({theme,direction}:IEvent) => {
           </div>
         </div>
       </div>
-      
-          </>
+    </>
   );
 };
 
 export default Login;
+
