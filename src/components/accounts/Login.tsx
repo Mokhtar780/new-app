@@ -58,11 +58,19 @@ const Login = ({ theme, myName, direction,language,setLanguage,  setTheme, setMy
             `}>
             <div className="w-px-700 mx-auto">
               <div  className="app-brand-link gap-2 mb-2">
-                <span className="app-brand-text demo h4 fw-bold mb-1 ">
+                <span className={` demo h4 fw-bold mb-1  ${
+              theme == "dark"
+                ? "text-white"
+                : "text-black"
+            } `}>
                   <b> {myName ? " تسجيل الدخول"  : " Log in " }  </b>
                 </span>
               </div>
-              <h6 className="mb-2">
+              <h6 className={` mb-2  ${
+              theme == "dark"
+                ? "text-white"
+                : "text-black"
+            } `}>
               {myName ? " فضلاً ــ تسجيل الدخول لكي تستطيع أستخدام النظام . "  : " Please ــ Log In To Use The System . " } 
                 
               </h6>
@@ -116,7 +124,11 @@ const Login = ({ theme, myName, direction,language,setLanguage,  setTheme, setMy
                 </div>
               </div>
               <button
-                className="btn btn-primary Backlogin fontstyle d-grid w-100"
+                className={` btn btn-primary w-100 ${
+              theme == "dark"
+                ? "text-white"
+                : "text-black"
+            } `}
                 
                 onClick={()=> {
                   if (valueUserName=="123" && valuePassword =="123") {
@@ -149,7 +161,11 @@ const Login = ({ theme, myName, direction,language,setLanguage,  setTheme, setMy
               </p>
 
               <div className="divider my-4">
-                <div className="divider-text text-primary">
+                <div className={` divider-text  ${
+              theme == "dark"
+                ? "text-white"
+                : "text-black"
+            } `}>
                   <b>  {myName ? " أو "  : " Or " }  </b>
                 </div>
               </div>
